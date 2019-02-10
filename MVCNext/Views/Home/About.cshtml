@@ -1,0 +1,32 @@
+﻿@model MVCNext.Models.SquareModel
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(s => s.A)
+        @Html.TextBoxFor(s => s.A)
+
+        @Html.LabelFor(s => s.B)
+        @Html.TextBoxFor(s => s.B)
+
+        @Html.LabelFor(s => s.C)        
+        @Html.TextBoxFor(s => s.C)
+
+        <input type="submit" value="Calculate" />
+    }
+</div>
+<div>
+    <ul>
+        @foreach (double res in Model.Result)
+        {
+            <li>Result @res</li>
+        }
+    </ul>
+</div>
